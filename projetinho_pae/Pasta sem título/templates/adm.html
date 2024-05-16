@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Pasta sem título/style/adm.css">
+    <title>Administrativo</title>
+</head>
+<body>
+    
+        <nav id="menu">
+            <div class="nav">
+            <ul>
+                <li>olá, % Nome Ususario %</li>
+               <a href="#"><li><a href="#"><button class="button" onclick="showSuccessMessage()"><span>Retirar</span></button></a></li></a>
+            </ul>
+        </nav>
+        </div>
+    <div class="prod_cad_list">
+        <div class="produtos">
+            <h1>Produtos Cadastrados</h1>
+            <div class="src"><input type="text" class="input-bonitinha" placeholder=" Rastreio ou CPF"></div>
+
+           
+            <table>
+               
+                <tr>
+                    <td>João paulo Vieira </td>
+                    <td>227.327.125-00</td>
+                    <td>DVC0075BRC</td>
+                    <td><p class="stats"> A caminho</p></td>
+                   <td><a href="#"><button class="button" onclick="showSuccessMessage()"><span>Receber</span></button></a></td>
+                </tr>
+
+            </table>
+            <div class="success-message" id="successMessage">Produto recebido com sucesso!</div>
+        </div>
+
+    </div>
+    <footer>
+        <div class="rodape_page">
+
+        </div>
+    </footer>
+    <script>
+        // Função para mostrar a mensagem de sucesso e depois ocultá-la
+        function showSuccessMessage() {
+          var message = document.getElementById("successMessage");
+          message.style.display = "block"; // Exibe a mensagem
+          
+          // Após 3 segundos, oculta a mensagem
+          setTimeout(function() {
+            message.style.display = "none";
+          }, 1000);
+        }
+        </script>
+        
+</body>
+</html>

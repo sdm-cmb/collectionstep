@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+:root{
+    --branco: #ffffff;
+    --preto: #000;
+    --cinza: rgba(255,255,255,0.5);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 110vh;
+    width: 100%;
+    background: url(/img/background.jpg)no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.box{
+    position: relative;
+    width: 25%;
+    height: 60vh;
+    background: transparent;
+    border: 2px solid var(--cinza);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(img/);
+
+}
+
+h2{
+    font-size: 2em;
+    color: var(--branco);
+    text-align: center;
+}
+.cxentrada{
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    border-bottom: 2px solid var(--branco);
+}
+.cxentrada label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: var(--branco);
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+input:focus ~ label,
+input:valid ~ label{
+top: -5px;
+}
+.cxentrada input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding:0 35px 0 5px;
+    color: var(--branco);
+}
+.cxentrada ion-icon{
+    position: absolute;
+    right: 8px;
+    color: var(--branco);
+    font-size: 1.2em;
+    top: 20px;
+}
+.esqueci{
+    margin: -15px 0 15px ;
+    font-size: .9em;
+    color: var(--branco);
+    display: flex;
+    justify-content: space-between;  
+}
+
+.esqueci label input{
+    margin-right: 3px;
+    
+}
+.esqueci label a{
+    color: var(--branco);
+    text-decoration: none;
+}
+.esqueci label a:hover{
+    text-decoration: underline;
+}
+button{
+    width: 100%;
+    height: 40px;
+    border-radius: 50px;
+    background: var(--branco);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.perdi:hover{
+    color: red;
+}
+
+.registro{
+    font-size: .9em;
+    color: var(--branco);
+    text-align: center;
+    margin: 25px 0 10px;
+}
+.registro p a{
+    text-decoration: none;
+    color: var(--branco);
+    font-weight: 600;
+}
+.registro p a:hover{
+    text-decoration: underline;
+}
