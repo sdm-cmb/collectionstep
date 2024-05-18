@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    background: url(../static/img/background.jpg) no-repeat center;
+    background-size: cover;
+    color: white;
+}
+
+#menu {
+    width: 100%;
+    height: 50px;
+    background-color: #FE7912;
+    opacity: 0.7;
+    border: none;
+}
+
+.nav {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.prod_cad_list {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    margin-top: 10%;
+    justify-content: center;
+}
+
+.produtos {
+    width: 55%;
+    height: 2%;
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+    background-color: #FE7912;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:hover {
+    background-color: #ff7322;
+}
+
+.stats {
+    border: 1px solid #fff;
+    border-radius: 45px;
+    width: 50%;
+    align-items: center;
+    text-align: center;
+    background-color: #FF5100;
+    color: #f2f2f2;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+@media (max-width: 490px) {
+    /* Estilos para telas com largura menor ou igual a 490 pixels */
+    .produtos {
+        width: 90%;
+    }
+
+    .stats {
+        border: 1px solid black;
+        border-radius: 45px;
+        width: 90%;
+        align-items: center;
+        text-align: center;
+        background-color: #FF4500; /* Alterado para a cor laranja */
+        color: #f2f2f2;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .centro {
+        width: 100%;
+        text-align: center;
+        margin: 100px 0 auto; /* Corrigido o valor de margem */
+    }
+}

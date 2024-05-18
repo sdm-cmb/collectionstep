@@ -1,0 +1,3 @@
+
+DELETE database CollectionStep
+

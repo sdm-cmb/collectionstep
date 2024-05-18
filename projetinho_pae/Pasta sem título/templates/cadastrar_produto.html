@@ -1,0 +1,38 @@
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/bootstrap.css">
+  <link rel="stylesheet" href="../static/Style.css">
+  <title>Cadastrar Produto</title>
+</head>
+
+<body>
+    <div class="container">
+        <form method="post" action="/adicionar_produto">
+            <fieldset>
+                <legend>Digite as Informações do Produto</legend>
+                <div>
+                    <label for="txtRastreio">Rastreio do produto:</label>
+                    <input type="text" name="txtRastreio" id="txtRastreio" required>
+                </div>
+                <div>
+                    <label for="txtTipo">Tipo do Produto:</label>
+                    <input type="text" name="txtTipo" id="txtTipo" required>
+                </div>
+                <div>
+                    <label for="txtData">Previsão de Data de Recebimento:</label>
+                    <input type="date" name="txtData" id="txtData" required>
+                </div>
+                <div>
+                    <label for="txtDescricao">Descrição Produto:</label>
+                    <input type="text" name="txtDescricao" id="txtDescricao" required>
+                </div>
+                <button type="submit">Cadastrar produto</button>
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>

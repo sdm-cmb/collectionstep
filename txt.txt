@@ -1,0 +1,168 @@
+{% extends "estrutura.html" %}
+
+{% block conteudo %}
+    <form method="post" action="/adiciona">
+
+        <div class="mb-3">
+            <label class="form-label">Nome do Produto:</label>
+            <input class="form-control" type="text" name="txtNome"
+            placeholder="Digite o nome do produto">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Marca do Produto</label>
+            <input class="form-control" type="text" name="txtMarca">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Preço do Produto</label>
+            <input class="form-control" type="text" name="txtPreco">
+        </div>
+
+        <div class="mb-3">
+            <button class="btn btn-primary" type="submit">Cadastrar Produto</button>
+        </div>
+
+    </form>
+{% endblock %}
+
+
+
+
+
+
+
+from flask import Flask, render_template, request, redirect
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+
+# A linha abaixo cria a chave de segurança
+app.secret_key = 'aprendendodoiniciocomdaniel'
+
+# A linha abaixo configura o acesso ao banco de dados
+app.config['SQLALCHEMY_DATABASE_URI'] = \
+    '{SGBD}://{usuario}:{senha}@{servidor}/{database}'.format(
+        SGBD='mysql+mysqlconnector',
+        usuario='root',
+        senha='cmb110205',
+        servidor='localhost',
+        database='loja'
+    )
+
+# A linha abaixo cria uma instância com o SQLAlchemy
+db = SQLAlchemy(app)
+
+class Produto(db.Model):
+    id_produto = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nome_produto = db.Column(db.String(50), nullable=False)
+    marca_produto = db.Column(db.String(40), nullable=False)
+    preco_produto = db.Column(db.Float, nullable=False)
+
+    def __repr__(self):
+        return '<Produto %r>' % self.nome_produto
+
+@app.route('/inicio')
+def ola():
+    return '<h1> Iniciando flask</h1>'
+
+@app.route('/lista')
+def lista():
+    produtos_cadastrados = Produto.query.order_by(Produto.id_produto).all()
+    return render_template('lista.html',
+                           descricao="Aqui estão seus produtos cadastrados",
+                           lista_prod=produtos_cadastrados)
+
+@app.route('/cadastrar')
+def cadastrar_produto():
+    return render_template('cadastrar.html')
+
+@app.route('/adiciona', methods=['POST'])
+def adicionar_produto():
+    preco_prod = request.form['txtPreco'].replace(',', '.')
+    marca_prod = request.form['txtMarca']
+    nome_prod = request.form['txtNome']
+    preco_prod = float(preco_prod)
+
+    produto_adicionado = Produto(nome_produto=nome_prod,
+                                 marca_produto=marca_prod,
+                                 preco_produto=preco_prod)# type: ignore
+
+    db.session.add(produto_adicionado)
+    db.session.commit()
+
+    return redirect('/lista')
+
+@app.route('/excluir/<int:id>')
+def excluir_produto(id):
+    Produto.query.filter_by(id_produto=id).delete()
+    db.session.commit()
+    return redirect('/lista')
+
+@app.route('/editar/<int:id>')
+def editar_produto(id):
+    produto_selecionado = Produto.query.filter_by(id_produto=id).first()
+    return render_template('editar.html', produto=produto_selecionado)
+
+@app.route('/atualizar', methods=['POST'])
+def atualiza_registro():
+    produto = Produto.query.filter_by(id_produto=request.form['txtId']).first()
+    produto.nome_produto = request.form['txtNome'] # type: ignore
+    produto.marca_produto = request.form['txtMarca'] # type: ignore
+    produto.preco_produto = float(request.form['txtPreco'].replace(',', '.'))# type: ignore
+
+    db.session.add(produto)
+    db.session.commit()
+
+    return redirect('/lista')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+
+
+
+{% extends "estrutura.html" %}
+
+{% block conteudo %}
+    <h2>{{ descricao }}</h2>
+
+    <table class="table table-hover">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Nome Produto</th>
+                <th>Marca</th>
+                <th>Preço R$</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            {# Loop através dos produtos e exiba-os na tabela #}
+            {% for produto in lista_prod %}
+            <tr>
+                <td>{{ produto.nome_produto }}</td>
+                <td>{{ produto.marca_produto }}</td>
+                <td>{{ produto.preco_produto }}</td>
+        
+                <td> 
+                    <!-- 
+                        o link abaixo chama a tela 
+                        passando o id do produto 
+                        que será atualizado
+                    -->
+                    <a href="{{ url_for('editar_produto', id=produto.id_produto) }}">Editar</a>
+                    <a href="{{ url_for('excluir_produto', id=produto.id_produto) }}">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        
+
+    </table>
+
+{% endblock %}
+
+    

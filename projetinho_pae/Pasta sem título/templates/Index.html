@@ -1,34 +1,46 @@
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Pasta sem título/style/Style.css">
+    <link rel="stylesheet" href="../static/Style.css">
+    <link rel="stylesheet" href="../static/bootstrap.css">
     <title>tela inicial</title>
+
 </head>
+
 <body>
-    
-        <nav id="menu">
-            <div class="nav">
+
+    <header>
+        <div class="container">
+          <h1><a href="index.html">Portfólio de Caio</a></h1>
+          <nav>
             <ul>
-                <li>olá, % Nome Ususario %</li>
-               <a href="#"><li>Cadastrar Produto</li></a>
+              <li><a href="{{url_for('cadastrar_produto')}}">Sobre</a></li>
             </ul>
-        </nav>
+          </nav>
         </div>
+      </header>
+    
+
     <div class="prod_cad_list">
         <div class="produtos">
             <h1>Produtos Cadastrados</h1>
-            <table>
-               
-                <tr>
-                    <td>Controle com fio </td>
-                    <td>25/05/2024</td>
-                    <td><p class="stats"> A caminho</p></td>
-                   <td><a href="#">Info</a></td>
-                </tr>
 
+            <table>
+                {% for Product in Produtos %}
+                <tr>
+                    <td>{{Product.rastreio_pedido}} </td>
+                    <td>{{Product.datareceb_prod}}</td>
+                    <td>
+                        <p class="stats"> A caminho</p>
+                    </td>
+                    <td><a href="#">Info</a></td>
+                </tr>
+                {% endfor %}
             </table>
-        
+
+
         </div>
 
     </div>
@@ -38,4 +50,5 @@
         </div>
     </footer>
 </body>
+
 </html>
