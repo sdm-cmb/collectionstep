@@ -21,7 +21,7 @@ class Produtos(db.Model):
     def __repr__(self):
         return '<Produto %r>' % self.rastreio_pedido
 
-# Rotas
+# Rotas 
 @app.route("/")
 def paginaInicial():
     produtos_cadastrados = Produtos.query.order_by(Produtos.id_produto).all()

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -6,31 +7,30 @@
     <link rel="stylesheet" href="../static/Style.css">
     <link rel="stylesheet" href="../static/bootstrap.css">
     <title>tela inicial</title>
-
 </head>
 
 <body>
-
     <header>
         <div class="container">
-          <h1><a href="index.html"></a></h1>
-          <nav>
-            <ul>
-              <li><a href="{{url_for('cadastrar_produto')}}">Sobre</a></li>
-            </ul>
-          </nav>
+            <h1><a href="index.html"></a></h1>
         </div>
-      </header>
-    
+    </header>
+
+    <nav class="menu">
+        <button id="menu-button" class="menu-button">Menu</button>
+        <div class="button-cascade hidden">
+            <a href="{{ url_for('cadastrar_produto') }}" class="option">Cadastrar Produto</a>
+            <a href="{{ url_for('paginaInicial') }}" class="option">Página Inicial</a>
+        </div>
+    </nav>
 
     <div class="prod_cad_list">
         <div class="produtos">
             <h1>Produtos Cadastrados</h1>
-
             <table>
                 {% for Product in Produtos %}
                 <tr>
-                    <td>{{Product.rastreio_pedido}} </td>
+                    <td>{{Product.rastreio_pedido}}</td>
                     <td>{{Product.datareceb_prod}}</td>
                     <td>
                         <p class="stats"> A caminho</p>
@@ -39,16 +39,14 @@
                 </tr>
                 {% endfor %}
             </table>
-
-
         </div>
-
     </div>
-    <footer>
-        <div class="rodape_page">
 
-        </div>
+    <footer>
+        <div class="rodape_page"></div>
     </footer>
+
+    <script src="../static/js/script.js"></script>
 </body>
 
 </html>
