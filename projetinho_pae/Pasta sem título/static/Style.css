@@ -10,7 +10,7 @@ html,
 body {
     padding: 0;
     margin: 0;
-    background: url(../static/img/background.jpg) no-repeat center;
+    background: url(../static/img/background.jpg);
     background-size: cover;
     color: white;
 }
@@ -78,6 +78,7 @@ tr:hover {
 }
 
 @media (max-width: 490px) {
+
     /* Estilos para telas com largura menor ou igual a 490 pixels */
     .produtos {
         width: 90%;
@@ -89,7 +90,8 @@ tr:hover {
         width: 90%;
         align-items: center;
         text-align: center;
-        background-color: #FF4500; /* Alterado para a cor laranja */
+        background-color: #FF4500;
+        /* Alterado para a cor laranja */
         color: #f2f2f2;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
@@ -97,7 +99,8 @@ tr:hover {
     .centro {
         width: 100%;
         text-align: center;
-        margin: 100px 0 auto; /* Corrigido o valor de margem */
+        margin: 100px 0 auto;
+        /* Corrigido o valor de margem */
     }
 }
 
@@ -110,6 +113,8 @@ tr:hover {
     padding: 10px;
     border-radius: 0 10px 10px 0;
     transition: width 0.3s ease;
+    z-index: 1000;
+    /* Garante que o menu fique sobre outros elementos */
 }
 
 .menu-button {
@@ -117,24 +122,37 @@ tr:hover {
     background: none;
     color: white;
     cursor: pointer;
+    font-size: 2em;
+    /* Tamanho do ícone */
 }
 
 .button-cascade {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-start; /* Alinhar as opções à esquerda */
     transition: opacity 0.5s ease, max-height 0.5s ease;
     opacity: 0;
     max-height: 0;
     overflow: hidden;
+    position: absolute; /* Para garantir que o menu fique sobreposto */
+    top: 60px; /* Ajuste conforme necessário */
+    left: 0; /* Alinha o menu à esquerda */
+    background-color: #FE7912; /* Cor de fundo do menu */
+    padding: 10px; /* Espaçamento interno do menu */
+    border-radius: 5px; /* Bordas arredondadas */
 }
 
 .button-cascade .option {
     color: white;
     padding: 10px 0;
+    text-decoration: none;
 }
 
-.menu-button:hover + .button-cascade,
+.button-cascade .option:hover {
+    text-decoration: underline;
+}
+
+.menu-button:hover+.button-cascade,
 .button-cascade:hover {
     opacity: 1;
     max-height: 200px;
@@ -142,21 +160,96 @@ tr:hover {
 
 @media (max-width: 768px) {
     .menu {
-        width: 60px; /* Largura reduzida para ícone de menu */
+        width: 60px;
+        /* Largura reduzida para ícone de menu */
     }
 
     .menu-button {
-        font-size: 20px; /* Tamanho do ícone de menu */
+        font-size: 20px;
+        /* Tamanho do ícone de menu */
     }
 
     .button-cascade {
-        align-items: center; /* Centraliza os botões em telas menores */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        /* Alterado para alinhar os botões no início */
+        transition: opacity 0.5s ease, max-height 0.5s ease;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
     }
+
+    .button-cascade .option {
+        color: white;
+        padding: 10px 0;
+        text-decoration: none;
+        /* Remove o sublinhado */
+    }
+
 }
 
 /* Esconde os botões na cascata por padrão */
 .button-cascade.hidden {
     opacity: 0;
     max-height: 0;
-    pointer-events: none; /* Não permite clique quando oculto */
+    pointer-events: none;
+    /* Não permite clique quando oculto */
+}
+
+.tabela {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    /* Centraliza a tabela horizontalmente */
+}
+
+fieldset {
+    border: none;
+}
+
+legend {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 0.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    background: #ff5722;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+    background: #e64a19;
 }
