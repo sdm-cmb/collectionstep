@@ -52,14 +52,18 @@ footer {
 table {
     border-collapse: collapse;
     width: 100%;
+    color: #fff;
 }
 
 td,
 th {
     border-bottom: 1px solid #fff;
-    border-top: 1px solid #fff;
     text-align: left;
     padding: 8px;
+}
+
+thead th {
+    border-top: 1px solid #fff;
 }
 
 tr:hover {
@@ -69,11 +73,10 @@ tr:hover {
 .stats {
     border: 1px solid #fff;
     border-radius: 45px;
-    width: 50%;
-    align-items: center;
+    width: 100%;
     text-align: center;
     background-color: #FF5100;
-    color: #f2f2f2;
+    color: #fff;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -169,6 +172,13 @@ tr:hover {
         /* Tamanho do ícone de menu */
     }
 
+    .menu-button:hover{
+        transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+    }
+
     .button-cascade {
         display: flex;
         flex-direction: column;
@@ -196,6 +206,7 @@ tr:hover {
     pointer-events: none;
     /* Não permite clique quando oculto */
 }
+
 
 .tabela {
     background: rgba(255, 255, 255, 0.1);
@@ -252,4 +263,16 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background: #e64a19;
+}
+
+/* Estilo para a tabela na página inicial */
+.table-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+    margin: auto; /* Centraliza a tabela horizontalmente */
+    color: #fff;
 }

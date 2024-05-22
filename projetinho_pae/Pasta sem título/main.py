@@ -20,6 +20,12 @@ class Produtos(db.Model):
 
     def __repr__(self):
         return '<Produto %r>' % self.rastreio_pedido
+    
+'''class Login (db.Model):'''
+#class Usuarios(db.model):
+    
+
+
 
 # Rotas 
 @app.route("/")
@@ -30,6 +36,16 @@ def paginaInicial():
 @app.route('/cadastrar_prod')
 def cadastrar_produto():
     return render_template('cadastrar_produto.html')
+
+'''@app.route('/login')
+def login():
+    redirect ('login;html')
+    
+@app.route('/registro')
+def registro ():
+    redirect ('reg.html')
+
+@app.route'''
 
 @app.route('/adicionar_produto', methods=['POST'])
 def adicionar_produto():
