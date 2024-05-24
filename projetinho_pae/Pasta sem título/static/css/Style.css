@@ -111,7 +111,7 @@ tr:hover {
     position: fixed;
     top: 10px;
     left: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color:none;
     color: white;
     padding: 10px;
     border-radius: 0 10px 10px 0;
@@ -126,6 +126,8 @@ tr:hover {
     color: white;
     cursor: pointer;
     font-size: 2em;
+    height: 30vh;
+    
     /* Tamanho do ícone */
 }
 
@@ -135,7 +137,7 @@ tr:hover {
     align-items: flex-start; /* Alinhar as opções à esquerda */
     transition: opacity 0.5s ease, max-height 0.5s ease;
     opacity: 0;
-    max-height: 0;
+    max-height: 3em;
     overflow: hidden;
     position: absolute; /* Para garantir que o menu fique sobreposto */
     top: 60px; /* Ajuste conforme necessário */
@@ -155,10 +157,11 @@ tr:hover {
     text-decoration: underline;
 }
 
-.menu-button:hover+.button-cascade,
+.menu-button:hover+ .button-cascade,
 .button-cascade:hover {
     opacity: 1;
     max-height: 200px;
+    
 }
 
 @media (max-width: 768px) {
