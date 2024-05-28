@@ -15,11 +15,6 @@
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <h1><a href="cadastrar_produto.html"></a></h1>
-    </div>
-  </header>
 
   <nav class="menu">
     <button id="menu-button" class="menu-button">
@@ -27,7 +22,7 @@
     </button>
     <div class="button-cascade hidden" id="button-cascade"> <!-- Adicionamos o id "button-cascade" -->
       <a href="{{ url_for('paginaInicial') }}" class="option">Página Inicial</a>
-      <a href="{{ url_for('cadastrar_produto') }}" class="option">Cadastrari Produto</a>
+      <a href="{{ url_for('cadastrar_produto') }}" class="option">Cadastrar Produto</a>
     </div>
   </nav>
 
@@ -48,7 +43,7 @@
           <input type="date" name="txtData" id="txtData" required>
         </div>
         <div>
-          <label for="txtDescricao"></label>
+          <label for="txtDescricao">Descrição</label>
           <input type="text" name="txtDescricao" id="txtData" required>
         </div>
         <button type="submit">Cadastrar Produto</button>
