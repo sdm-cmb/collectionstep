@@ -10,3 +10,4 @@ SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://{usuario}:{senha}@{host}/{data
 
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
+

@@ -19,7 +19,7 @@ def login():
 @app.route('/logar')
 def logar():
     email = request.form['txtEmail']
-    senha = request.form['']
+    senha = request.form['txtSenha']
     return redirect ('/')
     
 '''@app.route('/registro')
